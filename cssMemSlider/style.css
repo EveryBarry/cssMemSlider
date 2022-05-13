@@ -3,3 +3,17 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+:root {
+    --main-bg-color: rgb(25, 50, 60);
+    --secondary-color: rgb(243, 247, 240);
+}
+
+body {
+    background: var(--main-bg-color);
+    min-height: 100vh;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
