@@ -19,9 +19,12 @@ body {
 }
 
 .mem-slider {
-    margin-left: auto;
-    margin-right: auto;
+    margin: 0 auto;
     width: fit-content;
+    display: grid;
+    grid-template-areas:
+        'mem mem'
+        'text control';
 }
 
 .input {
@@ -31,9 +34,10 @@ body {
 }
 
 .mems {
+    grid-area: mem;
     overflow: hidden;
     border-radius: 1rem;
-    max-width: 56rem;
+    max-width: 40rem;
 }
 
 .mems_imgs {
@@ -43,19 +47,22 @@ body {
 
 .img {
     width: 100%;
-    object-fit: cover;
+    object-fit: fill;
 }
 
 .mem-titles {
+    height: 4rem;
+    grid-area: text;
+    align-self: center;
+    justify-self: start;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: 1rem;
 }
 
 .title-list {
     height: 1.7rem;
-    width: 30rem;
+    width: 12rem;
     display: flex;
     overflow: hidden;
 }
@@ -69,7 +76,11 @@ body {
 }
 
 .control-list {
+    justify-self: end;
+    align-self: center;
+    align-items: center;
     display: flex;
+    grid-area: control;
 }
 
 .control-list label {
@@ -108,7 +119,7 @@ label:hover .control-item {
 .input_slide-3:checked~.control-list label[for=slide-3] .control-item,
 .input_slide-4:checked~.control-list label[for=slide-4] .control-item,
 .input_slide-5:checked~.control-list label[for=slide-5] .control-item {
-    background-color: var(--secondary-color);
+    background-color: transparent;
 }
 
 .input_slide-1:checked~.mems .mems_imgs,
@@ -134,4 +145,25 @@ label:hover .control-item {
 .input_slide-5:checked~.mems .mems_imgs,
 .input_slide-5:checked~.mem-titles .title-list .title-item {
     transform: translateX(-400%);
+}
+
+@media screen and (max-width: 768px) {
+    .mem-slider {
+        grid-template-areas:
+            'mem'
+            'control'
+            'text';
+    }
+
+    .control-list {
+        justify-self: center;
+        align-self: center;
+        height: 3rem;
+    }
+
+    .mem-titles {
+        align-self: start;
+        justify-self: start;
+        align-items: baseline;
+    }
 }
