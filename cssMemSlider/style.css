@@ -17,3 +17,121 @@ body {
     align-items: center;
     justify-content: center;
 }
+
+.mem-slider {
+    margin-left: auto;
+    margin-right: auto;
+    width: fit-content;
+}
+
+.input {
+    visibility: hidden;
+    width: 0%;
+    height: 0%;
+}
+
+.mems {
+    overflow: hidden;
+    border-radius: 1rem;
+    max-width: 56rem;
+}
+
+.mems_imgs {
+    display: flex;
+    transition: 0.3s ease-in-out;
+}
+
+.img {
+    width: 100%;
+    object-fit: cover;
+}
+
+.mem-titles {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1rem;
+}
+
+.title-list {
+    height: 1.7rem;
+    width: 30rem;
+    display: flex;
+    overflow: hidden;
+}
+
+.title-item {
+    color: white;
+    min-width: 31rem;
+    margin: 0;
+    white-space: nowrap;
+    transition: transform 0.3s linear;
+}
+
+.control-list {
+    display: flex;
+}
+
+.control-list label {
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+}
+
+.control-list label:hover {
+    cursor: pointer;
+}
+
+.control-list label:active>.control-item {
+    transform: scale(0.75);
+}
+
+.control-item {
+    display: block;
+    width: 1.3rem;
+    height: 1.3rem;
+    border-radius: 50%;
+    background-color: #e6d11c;
+    border: 0.2rem solid #e6d11c;
+    margin: auto;
+    align-self: center
+}
+
+
+label:hover .control-item {
+    background-color: var(--secondary-color);
+    border-color: var(--secondary-color);
+}
+
+.input_slide-1:checked~.control-list label[for=slide-1] .control-item,
+.input_slide-2:checked~.control-list label[for=slide-2] .control-item,
+.input_slide-3:checked~.control-list label[for=slide-3] .control-item,
+.input_slide-4:checked~.control-list label[for=slide-4] .control-item,
+.input_slide-5:checked~.control-list label[for=slide-5] .control-item {
+    background-color: var(--secondary-color);
+}
+
+.input_slide-1:checked~.mems .mems_imgs,
+.input_slide-1:checked~.mem-titles .title-list .title-item {
+    transform: translateX(0);
+}
+
+.input_slide-2:checked~.mems .mems_imgs,
+.input_slide-2:checked~.mem-titles .title-list .title-item {
+    transform: translateX(-100%);
+}
+
+.input_slide-3:checked~.mems .mems_imgs,
+.input_slide-3:checked~.mem-titles .title-list .title-item {
+    transform: translateX(-200%);
+}
+
+.input_slide-4:checked~.mems .mems_imgs,
+.input_slide-4:checked~.mem-titles .title-list .title-item {
+    transform: translateX(-300%);
+}
+
+.input_slide-5:checked~.mems .mems_imgs,
+.input_slide-5:checked~.mem-titles .title-list .title-item {
+    transform: translateX(-400%);
+}
